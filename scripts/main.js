@@ -1,4 +1,4 @@
-var fileClient = SolidFileClient;
+var fileClient = SolidFileClient();
 
 const popupUri = 'popup.html';
 $('#login  button').click(() => solid.auth.popupLogin({ popupUri }) );
