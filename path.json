@@ -1,0 +1,7 @@
+{
+  "location":{
+  	"posts":"private/ZB/POSTS/",
+    "uploads":"private/ZB/UPLOADS",
+    "profile":"private/ZB/profile.ttl"
+  }
+}

@@ -1,0 +1,109 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/ico" href="logo.png" />
+    <title >ZAUZ BOOK</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="taskbars.css" rel="stylesheet">
+    <script src="../scripts/solid-auth-client.bundle.js"></script>
+    <script src="../scripts/solid-file-client.js"></script>
+    <script src="../scripts/solid-query-ldflex.bundle.js"></script>
+    <script src="jquery.js"></script>
+    <script src="app.js"></script>
+    <style>
+        #loader img{
+            width:50px;
+            height: 50px;
+            
+
+        }
+        .myProf{
+            border-radius: 50%;
+        }
+        #loader{
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        solid.auth.trackSession(session => {if(!session)window.location.href="../index.html";});
+    </script>
+    <script>
+    </script>
+</head>
+
+<body onload="getWebD()" >
+    <p id="webd">ABS</p>
+        <div class="taskbar">
+            <img src="logowhite.png"alt="logo" id="logo" class="spinLogo">
+            <input type="search" id="searchBar" placeholder="search friends and people">
+            <div class="buttons">
+            <img id="profile" src="prof.png">Profile
+            <span class="seperator">|</span>
+            <img id="fre" src="frn.png">
+            <span class="seperator">|</span>
+            
+            <img id="chat" src="chat.png">
+            <span class="seperator">|</span>
+            <img id="notification" src="noti.png">
+            <span class="seperator">|</span>
+            <img id="setting" src="set.png">
+            <span class="seperator">|</span>
+            <img id="logout" src="lo.png">
+            </div>
+        </div>
+        <div class="online">
+            <h5>Online People</h5>
+            <hr>
+          <button class="friend">
+              <img src="lo.png">
+              ABC
+
+          </button>
+          <hr>
+          <button class="friend">
+              <img src="prof.png">
+              ABC
+
+          </button>
+          <hr>
+            <button class="friend">
+              <img src="noti.png">
+              ABC
+
+          </button>
+           <hr>
+            <button class="friend">
+              <img src="chat.png">
+              ABC
+
+          </button>
+
+        </div>
+        <div class="posts">
+            
+        <div class="createPost">
+            <img src="prof.png" class="myProf"><span id="myPr">ABC</span>
+            <hr>
+            <textarea class="status" id="postbox" placeholder="What's on your mind?"></textarea>
+            
+            <p class="mediaFiles">
+                Upload Images <br><input type="file"  id="files">
+            </p>
+            <span id="loader"><img src="../loader.gif">Uploading your Post</span>
+            <button id="buttonpost" class="w3-btn w3-blue w3-round">Share</button><br>
+            <br>
+            <hr>
+        </div>
+            <h2>News Feeds</h2>
+            <hr>
+           
+        </div>
+    
+    
+</body>
+
+</html>

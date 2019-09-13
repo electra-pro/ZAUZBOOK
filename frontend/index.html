@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title >ZAUZ BOOK</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="jquery.js"></script>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+            height: auto;
+       background: rgba(0,0,255,0.6);
+           
+        }
+        #logo{
+            margin-left:2%;
+            width:60px;
+            height:60px;
+        }
+        
+        .taskbar img{
+            width:30px;
+            border-radius: 50%;
+            overflow: hidden;
+            height:30px;
+            transition: all 0.1s ease-in-out;
+        }
+        .taskbar img:hover{
+            width:45px;
+            height:45px;
+        }
+        *{
+            user-select: none;
+            outline: none;
+        }
+        .taskbar{
+
+            position: fixed;
+            z-index:10;
+            background: #142170;
+            color:white;
+            font-size: 15px;
+            width:100%;
+            padding:5px;
+
+        }
+        .taskbar img::hover{
+
+        }
+
+        #searchBar{
+            margin-left:1%;
+            width:50%;
+            height:40px;
+            border-radius: 25px;
+            padding:5px;
+            color:grey;
+            border:1px solid rgba(128,128,128,0.5);
+            overflow: hidden;
+        }
+        .buttons{
+            margin-left:2%;
+            display: inline;
+        }
+        .online
+        {
+            /*transform: translateY(+100%);*/
+            top:17%;
+            color:white;
+            border:2px solid rgba(128,128,128,0.4);
+            right:0px;
+            z-index:10;
+            display: list-item;
+            position: fixed;
+            background:white;
+            height:auto;
+            width:200px;
+            border-radius: 15px;
+            overflow:hidden;
+            padding:10px;
+            background: rgba(0,0,255,0.6);
+        }
+        .online button img{
+            width:30px;
+            height:30px;
+        }
+        .online button{
+            color:white;
+            border:none;
+            display: block;
+            background:none;
+            text-align: left;
+
+            transition: all 0.3 ease-in-out;
+        }
+       
+        .online h5:hover{
+             background:rgb(98, 107, 159);
+             color:white;
+           
+        }
+
+        .online h5{
+            text-align: center;
+            padding:20px;
+            background:white;
+            color:#142170;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+              font-size:22px;
+             transition: all 0.15s ease-in-out;
+
+        }
+        /*POSTS FRONT END STARTS HERE*/
+        .posts{
+            padding:10px;
+            background:white;
+            z-index:0;
+            width:40%;
+            margin-left:25%;
+            height:auto;
+            overflow: hidden;
+            transform: translateY(+10%);
+            display: list-item;
+        }
+        .post{
+            width:100%;
+            height: auto;
+            background:white;
+            display: block;
+            padding:12px;
+         border:1px solid grey;
+         border-radius: 5px;
+
+        }
+        .postheader{
+            width:100%;
+            height:auto;
+            line-height:0;
+
+        }
+        .postheader img{
+            border-radius: 50%;
+            overflow: hidden;
+            width:40px;
+            height:40px;
+
+        }
+        .myProf,.tag,.tagO{
+            color:blue;
+        }
+        .postheader .duration{
+            color:grey;
+            font-size: 10px;
+            margin-left:45px;
+        }
+        .postData {
+            margin-top:20px;
+
+        }
+    .postText{
+            text-align: justify;
+            color:grey;
+        }
+        .sharedMedia{
+            width:100%;
+            height:250px;
+
+        }
+        .controls span{
+            color:grey;
+            transition: all 0.3s ease-in-out;
+            margin:7px;
+        }
+        .controls span:hover{
+            color:black;
+        }
+        .postfooter{
+            display: inline-flex;
+            flex-direction: row;
+            padding:5px;
+
+        }
+        .postfooter .myProf{
+            width:40px;
+            height:40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .postfooter textarea{
+            width:350px;
+            border-radius: 15px;
+            resize: none;
+            padding:5px;
+            overflow-x:hidden;
+            overflow-y: auto;
+        }
+        .createPost{
+            padding:10px;
+            background:white;
+            z-index:0;
+            border-radius: 25px;
+            width:40%;
+            margin-left:25%;
+            height:300px;
+            overflow: hidden;
+            transform: translateY(+25%);
+            display: list-item;
+        }
+        .createPost .myProf{
+            width:40px;
+            height:40px;
+            overflow: hidden;
+
+        }.createPost #myPr{
+            color:grey;
+            margin-left:10px;
+        }
+        .createPost textarea{
+            resize: none;
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .createPost .mediaFiles{
+            color:grey;
+
+        }
+        .createPost button{
+            float:right;
+        }
+        /*POSTS FRONT END FINISH HERE*/
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+        <div class="taskbar">
+            <img src="logo.png"alt="logo" id="logo">
+            <input type="search" id="searchBar" placeholder="search friends and people">
+            <div class="buttons">
+            <img id="profile" src="prof.png">Profile
+            <span class="seperator">|</span>
+            <img id="fre" src="frn.png">
+            <span class="seperator">|</span>
+            
+            <img id="chat" src="chat.png">
+            <span class="seperator">|</span>
+            <img id="notification" src="noti.png">
+            <span class="seperator">|</span>
+            <img id="setting" src="set.png">
+            <span class="seperator">|</span>
+            <img id="logout" src="lo.png">
+            </div>
+        </div>
+        <div class="online">
+            <h5>Online People</h5>
+            <hr>
+          <button class="friend">
+              <img src="lo.png">
+              ABC
+
+          </button>
+          <hr>
+          <button class="friend">
+              <img src="prof.png">
+              ABC
+
+          </button>
+          <hr>
+            <button class="friend">
+              <img src="noti.png">
+              ABC
+
+          </button>
+           <hr>
+            <button class="friend">
+              <img src="chat.png">
+              ABC
+
+          </button>
+
+        </div>
+        <div class="createPost">
+            <img src="prof.png" class="myProf"><span id="myPr">ABC</span>
+            <br>
+            <textarea class="status" placeholder="What's on your mind?"></textarea>
+            <p class="mediaFiles">
+                Upload Images <br><input type="file" multiple id="files">
+            </p>
+
+            <button class="w3-btn w3-blue w3-round">Share</button>
+        </div>
+        <div class="posts">
+            <h3>News Feeds</h3>
+            <div class="post">
+                <p class="postheader">
+                    <img src="prof.png">
+                    <span class="myProf">ALPHA</span>
+                    &nbsp;
+                    was with 
+                    <span class="tag">DEF</span>
+                    and 
+                    <span class="tagO">99 others</span>
+                    <br>
+                    <span class="duration">4 hrs ago</span>
+                </p>
+                <p class="postData">
+                <p class="postText">
+                What Up
+            </p>
+                <img class="sharedMedia" src="noti.png">
+                </p>
+
+                <p class="controls">
+                    <span>LIKE</span>
+                    <span>SHARE</span>
+                </p>
+                <p class='postfooter'>
+                <img class="myProf" src="prof.png">
+                    <textarea placeholder="comment here"></textarea>
+                </p>
+            </div>
+            <br>
+                <div class="post">
+                <p class="postheader">
+                    <img src="prof.png">
+                    <span class="myProf">ALPHA</span>
+                    &nbsp;
+                    was with 
+                    <span class="tag">DEF</span>
+                    and 
+                    <span class="tagO">99 others</span>
+                    <br>
+                    <span class="duration">4 hrs ago</span>
+                </p>
+                <p class="postData">
+                <p class="postText">
+                What Up
+            </p>
+                <img class="sharedMedia" src="noti.png">
+                </p>
+
+                <p class="controls">
+                    <span>LIKE</span>
+                    <span>SHARE</span>
+                </p>
+                <p class='postfooter'>
+                <img class="myProf" src="prof.png">
+                    <textarea placeholder="comment here"></textarea>
+                </p>
+            </div>
+        </div>
+    
+    
+</body>
+
+</html>
